@@ -20,8 +20,8 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
     console.log("Mongo DB Connected!")
 }).catch((err)=>console.log(err));
 
-app.use("/api/pins",pinRoute)
-app.use("/api/users",userRoute)
+app.use("/pins",pinRoute)
+app.use("/users",userRoute)
 
 app.listen(PORT,() => {
     console.log("Backend server is running!" )
