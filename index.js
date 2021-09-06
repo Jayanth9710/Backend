@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const pinRoute = require("./routes/pins")
@@ -7,8 +8,13 @@ const PORT = process.env.PORT || 8800
 
 dotenv.config();
 
+
 const app = express();
 app.use(express.json())
+
+app.use(cors({
+    origin:"*"
+}))
 
 mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
     console.log("Mongo DB Connected!")
