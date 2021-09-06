@@ -1,7 +1,5 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
+const mapboxgl = require('mapbox-gl')
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -9,6 +7,10 @@ const dotenv = require('dotenv')
 const pinRoute = require("./routes/pins")
 const userRoute = require("./routes/users")
 const PORT = process.env.PORT || 8800
+
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 dotenv.config();
 
