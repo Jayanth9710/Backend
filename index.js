@@ -20,9 +20,13 @@ app.use(cors({
     origin:"*"
 }))
 
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
     console.log("Mongo DB Connected!")
 }).catch((err)=>console.log(err));
+
+mongoose.connection.on('connected',()=>{
+    console.log("Mongoose Connected")
+})
 
 app.use("/pins",pinRoute)
 app.use("/users",userRoute)
