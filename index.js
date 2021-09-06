@@ -27,6 +27,8 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
 app.use("/pins",pinRoute)
 app.use("/users",userRoute)
 
-app.listen(PORT,() => {
+
+
+app.listen(PORT,"0.0.0.0",() => {
     console.log("Backend server is running!" )
 });
