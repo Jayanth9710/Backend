@@ -35,5 +35,5 @@ app.use("/api/users",userRoute)
 
 app.listen(PORT,() => {
     console.log("Backend server is running!" )
-    console.log(PORT);
+    console.log(`The app is running in ${PORT}`);
 });
