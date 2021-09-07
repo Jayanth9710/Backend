@@ -20,9 +20,7 @@ app.use(cors({
     origin:"*"
 }))
 
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
-    console.log("Mongo DB Connected!")
-}).catch((err)=>console.log(err));
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:true})
 
 mongoose.connection.on('connected',()=>{
     console.log("Mongoose Connected")
