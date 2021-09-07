@@ -28,12 +28,12 @@ mongoose.connection.on('connected',()=>{
     console.log("Mongoose Connected")
 })
 
-app.use("/pins",pinRoute)
-app.use("/users",userRoute)
+app.use("/api/pins",pinRoute)
+app.use("/api/users",userRoute)
 
 
 
-app.listen(PORT,"0.0.0.0",() => {
+app.listen(PORT,() => {
     console.log("Backend server is running!" )
     console.log(PORT);
 });
