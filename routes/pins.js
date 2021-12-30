@@ -24,4 +24,20 @@ router.get("/",async (req,res)=>{
     } 
 })
 
+//Deleting Pin
+
+router.delete("/delete/:id",async (req,res) => {
+    try {
+        let data = await Pin.findByIdAndDelete({ _id: req.params.id });
+        res.json({
+            message:"Pin deleted Successfully!"
+        })
+    } catch (error) {
+        res.status(500).json({
+            message:"Something went wrong!"
+        })
+        console.log(req.params.id)
+    }
+})
+
 module.exports = router
